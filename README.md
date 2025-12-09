@@ -6,7 +6,7 @@ Kelompok 2 :
 2. Arya Yudhistira S. (F52123079) : Database
 3. Syahira kayla humayra (F52123067) : Backend
 4. Adriani maulidya (F52123075) : Frontend
-5. Nurul Zaskia (F52123074) : Ux/Ux
+5. Nurul Zaskia (F52123074) : UI/UX
 
 Link timeline : https://docs.google.com/spreadsheets/d/1M3vb6XHlpglEOqEKoEgszAIW865u2KtV/edit?usp=drive_web&ouid=115502778965561590164&rtpof=true
 
