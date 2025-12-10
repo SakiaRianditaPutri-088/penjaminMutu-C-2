@@ -6,7 +6,19 @@ Kelompok 2 :
 2. Arya Yudhistira S. (F52123079) : Database
 3. Syahira kayla humayra (F52123067) : Backend
 4. Adriani maulidya (F52123075) : Frontend
-5. Nurul Zaskia (F52123074) : Ux/Ux
+5. Nurul Zaskia (F52123074) : UI/UX
+
+Framework : Laravel ver 5.13
+software :
+- Visual Studio Code Ver 1.106
+- Supabase Ver 
+- Github Ver 3.7.5
+
+Cara Run :
+- Buka aplikasi Visual Studio Code
+- Buka terminal, ketik NP NPM run dev , setelah itu akan di berikan link localhost 3000
+- copy link localhhost 3000 dan paste ke Browser 
+- Maka, tampilan akan muncul
 
 Link timeline : https://docs.google.com/spreadsheets/d/1M3vb6XHlpglEOqEKoEgszAIW865u2KtV/edit?usp=drive_web&ouid=115502778965561590164&rtpof=true
 
