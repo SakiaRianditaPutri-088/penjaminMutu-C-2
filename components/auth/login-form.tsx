@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useTranslation } from "@/lib/translations"
 import RobotLogo from "@/components/logo/robot-logo"
-import { apiClient } from "@/lib/api-client"
+import { authService } from "@/lib/supabase-service"
 
 export default function LoginForm() {
   const router = useRouter()
@@ -32,13 +32,13 @@ export default function LoginForm() {
         return
       }
 
-      const response = await apiClient.login(email, password)
+      const response = await authService.signIn(email, password)
 
       // Store user data
       const userData = {
-        id: response.user.id,
-        email: response.user.email,
-        name: response.user.full_name,
+        id: response.user?.id || "",
+        email: response.user?.email || "",
+        name: response.user?.user_metadata?.full_name || email,
         loginTime: new Date().toISOString(),
       }
       localStorage.setItem("user", JSON.stringify(userData))
@@ -47,15 +47,15 @@ export default function LoginForm() {
     } catch (err: any) {
       let errorMessage = err.message || (language === "id" ? "Login gagal. Silakan coba lagi." : "Login failed. Please try again.")
 
-      // Translate common errors
-      if (errorMessage.includes("Invalid") || errorMessage.includes("credentials")) {
+      // Translate common Supabase errors
+      if (errorMessage.includes("Invalid login credentials") || errorMessage.includes("Invalid") || errorMessage.includes("credentials")) {
         errorMessage = language === "id"
           ? "Email atau password salah."
           : "Invalid email or password."
-      } else if (errorMessage.includes("Failed to connect")) {
+      } else if (errorMessage.includes("Email not confirmed")) {
         errorMessage = language === "id"
-          ? "Tidak dapat terhubung ke server. Pastikan backend berjalan di http://localhost:8000"
-          : "Failed to connect to server. Make sure backend is running on http://localhost:8000"
+          ? "Email belum dikonfirmasi. Cek inbox email Anda."
+          : "Email not confirmed. Check your inbox."
       }
 
       setError(errorMessage)
@@ -83,7 +83,7 @@ export default function LoginForm() {
       }
 
       console.log('Registering user...', { email, name })
-      const response = await apiClient.register(email, password, name)
+      const response = await authService.signUp(email, password, name)
       console.log('Register response:', response)
 
       if (!response || !response.user) {
@@ -109,15 +109,15 @@ export default function LoginForm() {
       let errorMessage = err.message ||
         (language === "id" ? "Registrasi gagal. Silakan coba lagi." : "Registration failed. Please try again.")
 
-      // Translate common errors
-      if (errorMessage.includes('already registered') || errorMessage.includes('already exists')) {
+      // Translate common Supabase errors
+      if (errorMessage.includes('already registered') || errorMessage.includes('User already registered') || errorMessage.includes('already exists')) {
         errorMessage = language === "id"
           ? "Email sudah terdaftar. Silakan login atau gunakan email lain."
           : "Email already registered. Please login or use a different email."
-      } else if (errorMessage.includes('Failed to connect')) {
+      } else if (errorMessage.includes('rate limit')) {
         errorMessage = language === "id"
-          ? "Tidak dapat terhubung ke server. Pastikan backend berjalan di http://localhost:8000"
-          : "Failed to connect to server. Make sure backend is running on http://localhost:8000"
+          ? "Terlalu banyak percobaan. Tunggu beberapa menit."
+          : "Too many attempts. Please wait a few minutes."
       }
 
       setError(errorMessage)
