@@ -7,6 +7,7 @@ Kelompok 2 :
 3. Syahira kayla humayra (F52123067) : Backend
 4. Adriani maulidya (F52123075) : Frontend
 5. Nurul Zaskia (F52123074) : UI/UX
+<<<<<<< HEAD
 
 Framework : Laravel ver 5.13
 software :
@@ -19,6 +20,8 @@ Cara Run :
 - Buka terminal, ketik NP NPM run dev , setelah itu akan di berikan link localhost 3000
 - copy link localhhost 3000 dan paste ke Browser 
 - Maka, tampilan akan muncul
+=======
+>>>>>>> 30a4eccf01c231c5412da59e7bc13827948db9e2
 
 Link timeline : https://docs.google.com/spreadsheets/d/1M3vb6XHlpglEOqEKoEgszAIW865u2KtV/edit?usp=drive_web&ouid=115502778965561590164&rtpof=true
 
