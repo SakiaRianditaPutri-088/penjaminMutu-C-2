@@ -1,0 +1,9 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/dashboard/courses/[id]/page": "/dashboard/courses/[id]",
+  "/dashboard/courses/page": "/dashboard/courses",
+  "/dashboard/page": "/dashboard",
+  "/dashboard/profile/page": "/dashboard/profile",
+  "/page": "/"
+}
