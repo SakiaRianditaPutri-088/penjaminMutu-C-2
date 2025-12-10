@@ -691,21 +691,23 @@ function LoginForm() {
                 setIsLoading(false);
                 return;
             }
-            const response = await authService.signIn(email, password);
+            const response = await apiClient.login(email, password);
             // Store user data
             const userData = {
-                id: response.user?.id || "",
-                email: response.user?.email || "",
-                name: response.user?.user_metadata?.full_name || "",
+                id: response.user.id,
+                email: response.user.email,
+                name: response.user.full_name,
                 loginTime: new Date().toISOString()
             };
             localStorage.setItem("user", JSON.stringify(userData));
             router.push("/dashboard");
         } catch (err) {
             let errorMessage = err.message || (language === "id" ? "Login gagal. Silakan coba lagi." : "Login failed. Please try again.");
-            // Translate common Supabase errors
-            if (errorMessage.includes("Invalid login credentials")) {
+            // Translate common errors
+            if (errorMessage.includes("Invalid") || errorMessage.includes("credentials")) {
                 errorMessage = language === "id" ? "Email atau password salah." : "Invalid email or password.";
+            } else if (errorMessage.includes("Failed to connect")) {
+                errorMessage = language === "id" ? "Tidak dapat terhubung ke server. Pastikan backend berjalan di http://localhost:8000" : "Failed to connect to server. Make sure backend is running on http://localhost:8000";
             }
             setError(errorMessage);
         } finally{
@@ -731,36 +733,27 @@ function LoginForm() {
                 email,
                 name
             });
-            const response = await authService.signUp(email, password, name);
+            const response = await apiClient.register(email, password, name);
             console.log('Register response:', response);
             if (!response || !response.user) {
                 throw new Error(language === "id" ? "Registrasi gagal: Response tidak valid" : "Registration failed: Invalid response");
             }
-            // Check if email confirmation is required
-            if (response.session === null) {
-                setError(language === "id" ? "Registrasi berhasil! Silakan cek email Anda untuk konfirmasi." : "Registration successful! Please check your email for confirmation.");
-                return;
-            }
-            // Store user data
-            const userData = {
-                id: response.user.id,
-                email: response.user.email || "",
-                name: response.user.user_metadata?.full_name || name,
-                loginTime: new Date().toISOString()
-            };
-            localStorage.setItem("user", JSON.stringify(userData));
-            router.push("/dashboard");
+            // Show success message and switch to login mode
+            setError(language === "id" ? "Registrasi berhasil! Silakan login dengan email dan password Anda." : "Registration successful! Please login with your email and password.");
+            // Clear form and switch to login mode
+            setName("");
+            setPassword("");
+            // Keep email so user can login easily
+            setIsLogin(true);
         } catch (err) {
             console.error('Registration error:', err);
             // Extract error message
             let errorMessage = err.message || (language === "id" ? "Registrasi gagal. Silakan coba lagi." : "Registration failed. Please try again.");
-            // Translate common Supabase errors
-            if (errorMessage.includes('already registered') || errorMessage.includes('User already registered')) {
+            // Translate common errors
+            if (errorMessage.includes('already registered') || errorMessage.includes('already exists')) {
                 errorMessage = language === "id" ? "Email sudah terdaftar. Silakan login atau gunakan email lain." : "Email already registered. Please login or use a different email.";
-            } else if (errorMessage.includes('Invalid email')) {
-                errorMessage = language === "id" ? "Format email tidak valid." : "Invalid email format.";
-            } else if (errorMessage.includes('Password')) {
-                errorMessage = language === "id" ? "Password minimal 6 karakter." : "Password must be at least 6 characters.";
+            } else if (errorMessage.includes('Failed to connect')) {
+                errorMessage = language === "id" ? "Tidak dapat terhubung ke server. Pastikan backend berjalan di http://localhost:8000" : "Failed to connect to server. Make sure backend is running on http://localhost:8000";
             }
             setError(errorMessage);
         } finally{
@@ -793,12 +786,12 @@ function LoginForm() {
                                 className: "text-blue-600 dark:text-blue-400"
                             }, void 0, false, {
                                 fileName: "[project]/components/auth/login-form.tsx",
-                                lineNumber: 159,
+                                lineNumber: 151,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/auth/login-form.tsx",
-                            lineNumber: 158,
+                            lineNumber: 150,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardTitle"], {
@@ -806,7 +799,7 @@ function LoginForm() {
                             children: "Si Tugas"
                         }, void 0, false, {
                             fileName: "[project]/components/auth/login-form.tsx",
-                            lineNumber: 161,
+                            lineNumber: 153,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -814,13 +807,13 @@ function LoginForm() {
                             children: "Task Management Dashboard"
                         }, void 0, false, {
                             fileName: "[project]/components/auth/login-form.tsx",
-                            lineNumber: 162,
+                            lineNumber: 154,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/auth/login-form.tsx",
-                    lineNumber: 157,
+                    lineNumber: 149,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -840,7 +833,7 @@ function LoginForm() {
                                     children: language === "id" ? "Masuk" : "Login"
                                 }, void 0, false, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 166,
+                                    lineNumber: 158,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -855,13 +848,13 @@ function LoginForm() {
                                     children: language === "id" ? "Daftar" : "Register"
                                 }, void 0, false, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 181,
+                                    lineNumber: 173,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/auth/login-form.tsx",
-                            lineNumber: 165,
+                            lineNumber: 157,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -873,7 +866,7 @@ function LoginForm() {
                                     children: error
                                 }, void 0, false, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 192,
                                     columnNumber: 15
                                 }, this),
                                 !isLogin && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -884,7 +877,7 @@ function LoginForm() {
                                             children: language === "id" ? "Nama Lengkap" : "Full Name"
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 212,
+                                            lineNumber: 204,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -896,13 +889,13 @@ function LoginForm() {
                                             className: "dark:bg-slate-800 dark:border-slate-700"
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 215,
+                                            lineNumber: 207,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 211,
+                                    lineNumber: 203,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -913,7 +906,7 @@ function LoginForm() {
                                             children: "Email"
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 227,
+                                            lineNumber: 219,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -925,13 +918,13 @@ function LoginForm() {
                                             className: "dark:bg-slate-800 dark:border-slate-700"
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 228,
+                                            lineNumber: 220,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 226,
+                                    lineNumber: 218,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -942,7 +935,7 @@ function LoginForm() {
                                             children: language === "id" ? "Kata Sandi" : "Password"
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 231,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -954,13 +947,13 @@ function LoginForm() {
                                             className: "dark:bg-slate-800 dark:border-slate-700"
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 242,
+                                            lineNumber: 234,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 238,
+                                    lineNumber: 230,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -970,13 +963,13 @@ function LoginForm() {
                                     children: isLoading ? language === "id" ? "Memproses..." : "Processing..." : isLogin ? language === "id" ? "Masuk" : "Login" : language === "id" ? "Daftar" : "Register"
                                 }, void 0, false, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 252,
+                                    lineNumber: 244,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/auth/login-form.tsx",
-                            lineNumber: 198,
+                            lineNumber: 190,
                             columnNumber: 11
                         }, this),
                         !isLogin && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -990,12 +983,12 @@ function LoginForm() {
                                                 className: "w-full border-t border-slate-300 dark:border-slate-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/auth/login-form.tsx",
-                                                lineNumber: 275,
+                                                lineNumber: 267,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 274,
+                                            lineNumber: 266,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1005,18 +998,18 @@ function LoginForm() {
                                                 children: language === "id" ? "atau" : "or"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/auth/login-form.tsx",
-                                                lineNumber: 278,
+                                                lineNumber: 270,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 277,
+                                            lineNumber: 269,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 273,
+                                    lineNumber: 265,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1034,19 +1027,19 @@ function LoginForm() {
                                                 d: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/auth/login-form.tsx",
-                                                lineNumber: 292,
+                                                lineNumber: 284,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/auth/login-form.tsx",
-                                            lineNumber: 291,
+                                            lineNumber: 283,
                                             columnNumber: 17
                                         }, this),
                                         language === "id" ? "Daftar dengan Facebook" : "Register with Facebook"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/auth/login-form.tsx",
-                                    lineNumber: 284,
+                                    lineNumber: 276,
                                     columnNumber: 15
                                 }, this)
                             ]
@@ -1056,24 +1049,24 @@ function LoginForm() {
                             children: isLogin ? language === "id" ? "Belum punya akun? Klik tab Daftar" : "Don't have an account? Click Register tab" : language === "id" ? "Sudah punya akun? Klik tab Masuk" : "Already have an account? Click Login tab"
                         }, void 0, false, {
                             fileName: "[project]/components/auth/login-form.tsx",
-                            lineNumber: 299,
+                            lineNumber: 291,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/auth/login-form.tsx",
-                    lineNumber: 164,
+                    lineNumber: 156,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/auth/login-form.tsx",
-            lineNumber: 156,
+            lineNumber: 148,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/auth/login-form.tsx",
-        lineNumber: 155,
+        lineNumber: 147,
         columnNumber: 5
     }, this);
 }

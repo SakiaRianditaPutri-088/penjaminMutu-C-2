@@ -49825,3 +49825,458 @@ https://github.com/highlightjs/highlight.js/issues/2277`),W=p,N=y),C===void 0&&(
 [04:54:03.484] Browser LOG     API Response: {"ok":true,"status":200,"statusText":"OK"}
 [04:54:03.484] Browser LOG     API Response Data: {"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6IlREYlJYcTZSQXVONGVvNUwiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2lwc3p2dWh6dmFzbGdyZ2d5ZG5vLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI4MWZhY2UyMS03NmMxLTQwMGMtYTNiMi04NTE2MGI2Y2MwNTMiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzY1MzM1NDc0LCJpYXQiOjE3NjUzMzE4NzQsImVtYWlsIjoibWV5MjBAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbCI6Im1leTIwQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmdWxsX25hbWUiOiJtZXlpbXV0IiwicGhvbmVfdmVyaWZpZWQiOmZhbHNlLCJzdWIiOiI4MWZhY2UyMS03NmMxLTQwMGMtYTNiMi04NTE2MGI2Y2MwNTMifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTc2NTMzMTg3NH1dLCJzZXNzaW9uX2lkIjoiOTA0OWVmMTAtOTEwMC00NWUxLTg5NTAtMWVjMWQ2NWQzZjE2IiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.lzrmcGxsUO5vJV7S8p7XTErLxCMbz2RW91uERwc5LTA","message":"Login successful","user":{"email":"mey20@gmail.com","full_name":"meyimut","id":"81face21-76c1-400c-a3b2-85160b6cc053"}}
 [06:20:23.563] Server  LOG      ✓ Compiled in 118ms
+[06:41:30.197] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:30.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:30.637] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:30.637] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:30.643] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.659] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.687] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.697] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.705] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.712] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.720] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.729] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.738] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:30.739] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.747] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.755] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:30.771] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:31.001] Browser ERROR   uncaughtError: Error: ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:31.001] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.139] Server  ERROR    ⨯ ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:33.198] Browser ERROR   uncaughtError: Error: ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:41:33.332] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:41:33.333] Browser ERROR   ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+[06:43:19.684] Server  LOG      ✓ Compiled in 62ms
+[06:43:19.697] Browser ERROR   uncaughtError: Error: ./package.json:2:1
+Error parsing package.json file
+  1 | {
+> 2 | <<<<<<< HEAD
+    | ^
+  3 |   "name": "my-v0-project",
+  4 |   "version": "0.1.0",
+  5 |   "private": true,
+
+package.json is not parseable: invalid JSON: key must be a string at line 2 column 1
+
+
+[06:43:56.164] Browser LOG     API Request: {"method":"POST","url":"http://localhost:8000/api/auth/login"}
+[06:43:57.781] Browser LOG     API Response: {"ok":false,"status":401,"statusText":"Unauthorized"}
+[06:43:57.781] Browser LOG     API Response Data: {"error":"Invalid credentials","message":"Invalid credentials"}
+[06:43:57.781] Browser ERROR   API Error: {"data":{"error":"Invalid credentials","message":"Invalid credentials"},"error":"Invalid credentials","status":401,"url":"http://localhost:8000/api/auth/login"}
+[06:43:57.781] Browser ERROR   API Request Error: {}
+[06:44:19.513] Browser LOG     API Request: {"method":"POST","url":"http://localhost:8000/api/auth/login"}
+[06:44:20.204] Browser LOG     API Response: {"ok":false,"status":401,"statusText":"Unauthorized"}
+[06:44:20.204] Browser LOG     API Response Data: {"error":"Invalid credentials","message":"Invalid credentials"}
+[06:44:20.204] Browser ERROR   API Error: {"data":{"error":"Invalid credentials","message":"Invalid credentials"},"error":"Invalid credentials","status":401,"url":"http://localhost:8000/api/auth/login"}
+[06:44:20.204] Browser ERROR   API Request Error: {}
+[06:44:35.502] Browser LOG     Registering user... {"email":"riri@gmail.com","name":"riri"}
+[06:44:35.502] Browser LOG     API Request: {"method":"POST","url":"http://localhost:8000/api/auth/register"}
+[06:44:36.366] Browser LOG     API Response: {"ok":true,"status":201,"statusText":"Created"}
+[06:44:36.366] Browser LOG     API Response Data: {"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6IlREYlJYcTZSQXVONGVvNUwiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2lwc3p2dWh6dmFzbGdyZ2d5ZG5vLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiZjljYzRhZS05OWI2LTQ2YjEtOTc4My0wOTU2ZjkzNWE1MjYiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzY1MzQyMTA3LCJpYXQiOjE3NjUzMzg1MDcsImVtYWlsIjoicmlyaUBnbWFpbC5jb20iLCJwaG9uZSI6IiIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIiwicHJvdmlkZXJzIjpbImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7ImVtYWlsIjoicmlyaUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoicmlyaSIsInBob25lX3ZlcmlmaWVkIjpmYWxzZSwic3ViIjoiYmY5Y2M0YWUtOTliNi00NmIxLTk3ODMtMDk1NmY5MzVhNTI2In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3NjUzMzg1MDd9XSwic2Vzc2lvbl9pZCI6ImUwN2Q3ZmFmLWY5YTEtNDgyOC1hZmEyLTFmYmVkZWVlZWFhNyIsImlzX2Fub255bW91cyI6ZmFsc2V9.usKyRrhSawMb6r8pDxfhkJtzJ8sIbxcU-3QibhidcM8","message":"User registered in Supabase but failed to sync to database","user":{"email":"riri@gmail.com","full_name":"riri","id":"bf9cc4ae-99b6-46b1-9783-0956f935a526"},"warning":"Database sync failed. Please check database connection."}
+[06:44:36.366] Browser LOG     Register response: {"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6IlREYlJYcTZSQXVONGVvNUwiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2lwc3p2dWh6dmFzbGdyZ2d5ZG5vLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiZjljYzRhZS05OWI2LTQ2YjEtOTc4My0wOTU2ZjkzNWE1MjYiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzY1MzQyMTA3LCJpYXQiOjE3NjUzMzg1MDcsImVtYWlsIjoicmlyaUBnbWFpbC5jb20iLCJwaG9uZSI6IiIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIiwicHJvdmlkZXJzIjpbImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7ImVtYWlsIjoicmlyaUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoicmlyaSIsInBob25lX3ZlcmlmaWVkIjpmYWxzZSwic3ViIjoiYmY5Y2M0YWUtOTliNi00NmIxLTk3ODMtMDk1NmY5MzVhNTI2In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3NjUzMzg1MDd9XSwic2Vzc2lvbl9pZCI6ImUwN2Q3ZmFmLWY5YTEtNDgyOC1hZmEyLTFmYmVkZWVlZWFhNyIsImlzX2Fub255bW91cyI6ZmFsc2V9.usKyRrhSawMb6r8pDxfhkJtzJ8sIbxcU-3QibhidcM8","message":"User registered in Supabase but failed to sync to database","user":{"email":"riri@gmail.com","full_name":"riri","id":"bf9cc4ae-99b6-46b1-9783-0956f935a526"},"warning":"Database sync failed. Please check database connection."}
+[06:44:51.597] Browser LOG     API Request: {"method":"POST","url":"http://localhost:8000/api/auth/login"}
+[06:44:52.454] Browser LOG     API Response: {"ok":true,"status":200,"statusText":"OK"}
+[06:44:52.454] Browser LOG     API Response Data: {"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6IlREYlJYcTZSQXVONGVvNUwiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2lwc3p2dWh6dmFzbGdyZ2d5ZG5vLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiZjljYzRhZS05OWI2LTQ2YjEtOTc4My0wOTU2ZjkzNWE1MjYiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzY1MzQyMTIzLCJpYXQiOjE3NjUzMzg1MjMsImVtYWlsIjoicmlyaUBnbWFpbC5jb20iLCJwaG9uZSI6IiIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIiwicHJvdmlkZXJzIjpbImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7ImVtYWlsIjoicmlyaUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoicmlyaSIsInBob25lX3ZlcmlmaWVkIjpmYWxzZSwic3ViIjoiYmY5Y2M0YWUtOTliNi00NmIxLTk3ODMtMDk1NmY5MzVhNTI2In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3NjUzMzg1MjN9XSwic2Vzc2lvbl9pZCI6ImI4MDAxYjBkLTFmODgtNDk1Yy1hYzUwLWE0ZmJhMjA4YWU2YSIsImlzX2Fub255bW91cyI6ZmFsc2V9.xTuovT7o0zHTbCF3LNsyCm1fnyklss7wypG6b3g-jHY","message":"Login successful","user":{"email":"riri@gmail.com","full_name":"riri","id":"bf9cc4ae-99b6-46b1-9783-0956f935a526"}}
+[06:55:30.999] Server  LOG      ✓ Compiled in 55ms
+[06:56:56.889] Server  LOG      ✓ Compiled in 29ms
